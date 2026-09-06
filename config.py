@@ -1,0 +1,20 @@
+"""Central settings. Edit these values before starting the game."""
+
+VERSION = "1.0.0"
+INTERNAL_SIZE = (384, 240)
+WINDOW_SCALE = 3
+FPS = 60
+TITLE = "Hexxagon | VGA Reborn"
+HEX_SIZE = 12.0
+BOARD_ORIGIN = (112.0, 129.0)
+DEFAULT_DIFFICULTY = "Normal"
+DIFFICULTIES = ("Easy", "Normal", "Hard")
+HARD_DEPTH = 4
+AI_TIME_LIMIT = 2.0
+CPU_MIN_DELAY = 0.35
+MOVE_DURATION = 0.24
+CONVERSION_DURATION = 0.24
+AUDIO_RATE = 22050
+AUDIO_VOLUME = 0.22
+SOUND_ENABLED = True
+DEBUG = False
