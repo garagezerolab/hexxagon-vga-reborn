@@ -1,0 +1,12 @@
+Third-party components
+
+Python: PSF license, see licenses/Python-LICENSE.txt and https://www.python.org/
+Pygame 2.6.1: LGPL 2.1, see licenses/pygame-LGPL.txt.
+Source: https://github.com/pygame/pygame/tree/2.6.1
+Pygame and SDL libraries remain separate shared libraries in _internal.
+Pygame wheel dependencies and upstream notices:
+https://github.com/pygame/pygame/tree/2.6.1/buildconfig
+SDL: https://www.libsdl.org/license.php
+PyInstaller bootloader: GPL with distribution exception:
+https://pyinstaller.org/en/stable/license.html
+The project's MIT license applies to its own code, not to these dependencies.

@@ -22,6 +22,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--headless", action="store_true", help="Use SDL dummy drivers for QA")
     parser.add_argument("--smoke-frames", type=int, default=0,
                         help="Exit after this many rendered frames (0: unlimited)")
+    parser.add_argument("--smoke-cpu", action="store_true",
+                        help="Verify a real CPU worker and exit (packaging QA)")
     parser.add_argument("--screenshot", type=Path,
                         help="Save the final internal-resolution frame on exit")
     args = parser.parse_args()
@@ -47,6 +49,27 @@ def main() -> int:
             raise
         print("Pygame is not installed. Run: pip install pygame pytest")
         return 1
+    if args.smoke_cpu:
+        import time
+        from board import Board
+        from worker import AIWorker
+        board = Board.initial()
+        board = board.play(board.legal_moves()[0])
+        worker = AIWorker()
+        try:
+            worker.submit(board, args.difficulty, args.depth, config.AI_TIME_LIMIT)
+            deadline = time.monotonic() + 15
+            while time.monotonic() < deadline:
+                answer = worker.poll()
+                if answer is not None:
+                    result, error = answer
+                    if error or result is None or not board.is_legal(result.move):
+                        raise RuntimeError(f"CPU smoke failed: {error or answer}")
+                    return 0
+                time.sleep(0.01)
+            raise TimeoutError("CPU smoke timed out")
+        finally:
+            worker.close()
     game = Game(difficulty=args.difficulty, depth=args.depth, scale=args.scale,
                 debug=args.debug, sound=config.SOUND_ENABLED and not args.mute)
     if args.autostart:

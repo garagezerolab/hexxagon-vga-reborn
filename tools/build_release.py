@@ -9,6 +9,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = (
+    "tools/build_native.py", "requirements-build.txt", ".github/workflows/build.yml",
+    "licenses/Python-LICENSE.txt", "licenses/pygame-LGPL.txt", "THIRD-PARTY.txt",
     "main.py", "config.py", "board.py", "ai.py", "worker.py", "game.py",
     "renderer.py", "audio.py", "requirements.txt", "pytest.ini", "play.bat",
     "README.md", "LICENSE", "CHANGELOG.md", "CONTRIBUTING.md", ".gitignore",

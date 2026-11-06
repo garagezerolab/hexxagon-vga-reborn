@@ -4,6 +4,10 @@ A complete **Python 3 + Pygame** strategy game inspired by Hexxagon: 58 hexagons
 ruby stones versus cyan stones, three deterministic CPU levels, VGA presentation,
 and synthesized retro sound. The code, font, graphics, and audio are original.
 
+**Published by [Garage Zero](https://github.com/garagezerolab).**
+
+**[Download and play on itch.io](https://garagezerolab.itch.io/hexxagon-vga-reborn)**
+
 ![Main menu](docs/menu.png)
 ![Gameplay](docs/gameplay.png)
 
@@ -107,6 +111,7 @@ equivalence and alpha-beta search, timeouts, process cancellation, controller
 input, recovery, and audio. The release script creates
 `dist/hexxagon-vga-reborn-1.0.0-source.zip` and its `.sha256` file.
 
-This is a source release, not a standalone executable. See [publishing notes](docs/PUBLISHING.md),
+Native Windows and Linux packages can be built with `python tools/build_native.py`
+after installing `requirements-build.txt` on the target OS. See [publishing notes](docs/PUBLISHING.md),
 [contributing](CONTRIBUTING.md), the [changelog](CHANGELOG.md), and the [MIT license](LICENSE).
 
